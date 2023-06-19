@@ -19,10 +19,10 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private FirebaseAuth mFirebaseAuth;
-    private DatabaseReference mDatabaseRef;
-    private EditText mEtEmail, mETPwd;
-    private Button mBtnRegister;
+    private FirebaseAuth mFirebaseAuth; //파이어베이스 인증처리
+    private DatabaseReference mDatabaseRef;//실시간 데이터 베이스
+    private EditText mEtEmail, mETPwd; //회원가입 입력필드
+    private Button mBtnRegister; //회원가입 입력 버튼
 
 
     @Override
@@ -31,7 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         mFirebaseAuth=FirebaseAuth.getInstance();
-        mDatabaseRef= FirebaseDatabase.getInstance().getReference();
+        mDatabaseRef= FirebaseDatabase.getInstance().getReference("PlayToCure");
 
         mEtEmail=findViewById(R.id.et_email);
         mETPwd=findViewById(R.id.et_pwd);
@@ -40,14 +40,16 @@ public class RegisterActivity extends AppCompatActivity {
         mBtnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //회원가입 처리 시작
                 String strEmail=mEtEmail.getText().toString();
                 String strPwd=mETPwd.getText().toString();
 
-                mFirebaseAuth.createUserWithEmailAndPassword(strEmail, strEmail).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
+                //FirebaseAuth 진행
+                mFirebaseAuth.createUserWithEmailAndPassword(strEmail, strPwd).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
-                        if(task.isComplete()){
+                        if(task.isSuccessful()){
 
                             FirebaseUser firebaseUser=mFirebaseAuth.getCurrentUser();
                             UserAccount account=new UserAccount();
@@ -55,6 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
                             account.setEmailId(firebaseUser.getEmail());
                             account.setPassword(strPwd);
 
+                            //setValue: 데이터베이스에 인서트
                             mDatabaseRef.child("UserAccount").child(firebaseUser.getUid()).setValue(account);
                             Toast.makeText(RegisterActivity.this,"회원가입에 성공하였습니다",Toast.LENGTH_SHORT).show();
                         }else{

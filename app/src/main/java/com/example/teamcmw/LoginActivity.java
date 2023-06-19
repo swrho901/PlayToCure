@@ -31,10 +31,50 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         mFirebaseAuth=FirebaseAuth.getInstance();
-        mDatabaseRef= FirebaseDatabase.getInstance().getReference();
+        mDatabaseRef= FirebaseDatabase.getInstance().getReference("PlayToCure");
 
         mEtEmail=findViewById(R.id.et_email);
         mETPwd=findViewById(R.id.et_pwd);
+
+        Button btn_login=findViewById(R.id.btn_login);
+        btn_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //로그인 요청
+                String strEmail=mEtEmail.getText().toString();
+                String strPwd=mETPwd.getText().toString();
+
+                mFirebaseAuth.signInWithEmailAndPassword(strEmail,strPwd).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        if(task.isSuccessful()){
+
+                            //로그인 성공
+                            Intent intent=new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            finish(); //현제 액티비티 파괴
+                        }else{
+                            //로그인 실패
+                            Toast.makeText(LoginActivity.this,"로그인 실패",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        });
+
+        Button btn_register=findViewById(R.id.btn_register);
+        btn_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //회원가입 화면으로 이동
+                Intent intent=new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         mBtnRegister=findViewById(R.id.btn_register);
         mBtnLogin=findViewById(R.id.btn_login);
 
