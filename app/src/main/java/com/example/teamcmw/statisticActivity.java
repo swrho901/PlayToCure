@@ -16,6 +16,8 @@ public class statisticActivity extends AppCompatActivity {
     TextView worstScore;
     TextView meanScore;
 
+    // DBHelper
+    DBHelper dbHelper = new DBHelper(this, 1);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +47,8 @@ public class statisticActivity extends AppCompatActivity {
 
             meanScore = findViewById(R.id.tv_mean);
 
-            meanScore.setText("평균기록: " + mtime + " 초 걸렸습니다");
+//            meanScore.setText("평균기록: " + mtime + " 초 걸렸습니다");
+            meanScore.setText(dbHelper.getGame1DetailResult());
         }else{
             bestScore.setText("최고기록: " + "아직 없습니다.");
             worstScore = findViewById(R.id.tv_worst);

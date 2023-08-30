@@ -95,7 +95,7 @@ public class GameActivity3 extends AppCompatActivity {
         str = tvText;
         new Timer().schedule(new TimerTask() {
             public void run() {
-               // tv.setText(String.valueOf(ans));
+                // tv.setText(String.valueOf(ans));
                 String strstr = String.valueOf(ans);
                 int len = strstr.length();
                 String strShow = "";

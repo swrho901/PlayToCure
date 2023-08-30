@@ -47,7 +47,7 @@ public class GameActivity2 extends AppCompatActivity {
         tv = findViewById(R.id.gameText);
         et = findViewById(R.id.editTextId);
 
-                // 6 - 8 까지 0.4, 0.4, 0.2 의 확률로 뽑힘
+        // 6 - 8 까지 0.4, 0.4, 0.2 의 확률로 뽑힘
         num = -1; maxNum = -987654321; minNum = 987654321;
 
 

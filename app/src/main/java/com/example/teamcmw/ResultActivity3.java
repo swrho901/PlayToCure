@@ -9,6 +9,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.appcompat.app.AppCompatActivity;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 public class ResultActivity3 extends AppCompatActivity {
 
     public double time;
@@ -17,6 +21,11 @@ public class ResultActivity3 extends AppCompatActivity {
     TextView tv;
     TextView tvCorrect;
     TextView tvWrong;
+
+    int round = 0;
+
+    // DBHelper
+    DBHelper dbHelper = new DBHelper(this, 1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +74,50 @@ public class ResultActivity3 extends AppCompatActivity {
 
 
         editor.commit();
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        Date currentDate = new Date();
+
+        round = dbHelper.getGame2Round();
+
+        String result = "보통";
+        String detailResult = "총 게임 시간이 1분 30초 미만이며 틀린 횟수가 10회 미만으로 주의력에 큰 문제가 없어 보입니다.";
+
+        if (time >= 90) {
+            if (wrongN <= 3) {
+                result = "주의";
+                detailResult = "총 게임 시간이 " + String.valueOf(time) + "초로 1분 30초 이상이며," +
+                        " 틀린 횟수가 " + String.valueOf(wrongN) + "회로 3회 미만이므로" +
+                        " 주의력 결핍이 의심됩니다.";
+            }
+            else {
+                result = "매우 주의";
+                detailResult = "총 게임 시간이 " + String.valueOf(time) + "초로 1분 30초 이상이며," +
+                        " 틀린 횟수가 " + String.valueOf(wrongN) + "회로 3회 이상으로" +
+                        " 주의력 결핍이 매우 의심됩니다.";
+            }
+
+        }
+        else if (time >= 120) {
+            result = "매우 주의";
+            detailResult = "총 게임 시간이 " + String.valueOf(time) + "초로 2분 이상으로" +
+                    " 주의력 결핍이 매우 의심됩니다.";
+        }
+        else if (wrongN >= 4) {
+            result = "주의";
+            detailResult = "총 게임 시간이 " + String.valueOf(time) + "초로 1분 30초 미만이나," +
+                    " 틀린 횟수가 " + String.valueOf(wrongN) + "회로 4회 이상이므로" +
+                    " 주의력 결핍이 의심됩니다.";
+        }
+        else if (wrongN >= 6) {
+            result = "매우 주의";
+            detailResult = "총 게임 시간이 " + String.valueOf(time) + "초로 1분 30초 미만이나," +
+                    " 틀린 횟수가 " + String.valueOf(wrongN) + "회로 6회 이상이므로" +
+                    " 주의력 결핍이 매우 의심됩니다.";
+        }
+
+        dbHelper.insertGame2(dateFormat.format(currentDate), round, time, wrongN, result, detailResult);
+
 
 
 

@@ -11,6 +11,8 @@ public class staticActivity2 extends AppCompatActivity {
     TextView tv_meancorrect;
     TextView tv_bestcorrect;
 
+    DBHelper dbHelper = new DBHelper(this, 1);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +42,8 @@ public class staticActivity2 extends AppCompatActivity {
         if(mtime!=(double)0.0f){
             tv_meantime.setText("hard mode 평균시간: " + mtime + " 초 걸렸습니다");
             tv_meancorrect.setText("hard mode 평균 맞춘 횟수: " + mcorrect + " 개 맞았습니다");
-            tv_bestcorrect.setText("hard mode 최대 맞춘 횟수: " + (int)bcorrect + " 개 맞았습니다");
+//            tv_bestcorrect.setText("hard mode 최대 맞춘 횟수: " + (int)bcorrect + " 개 맞았습니다");
+            tv_bestcorrect.setText(dbHelper.getGame3DetailResult());
         }else{
             tv_meantime.setText("hard mode 평균시간: "  + "아직 없습니다.");
             tv_meancorrect.setText("hard mode 평균 맞춘 횟수: "  + "아직 없습니다.");

@@ -22,6 +22,8 @@ public class GameActivity extends AppCompatActivity {
 
     public int TotalNum = 25;
     public double beforeTime = System.currentTimeMillis();
+
+    public int wrongCount = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +64,7 @@ public class GameActivity extends AppCompatActivity {
             visit[i] = 0;
 
         Random rand = new Random();
- //       rand.nextInt(25);
+        //       rand.nextInt(25);
         int idx = 0;
 
         while(checkFull() == 0){
@@ -163,11 +165,13 @@ public class GameActivity extends AppCompatActivity {
                         time = (afterTime - beforeTime)/1000;
                         Intent it = new Intent(v.getContext(), ResultActivity.class);
                         it.putExtra("time", time);
+                        it.putExtra("wrong", wrongCount);
                     }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "wrong number",Toast.LENGTH_LONG).show();
                     winSound.play(drillgear, 1, 1, 0, 0, (float) 1.2);
+                    wrongCount+=1;
                 }
             }
         });
@@ -184,12 +188,14 @@ public class GameActivity extends AppCompatActivity {
                         time = (afterTime - beforeTime)/1000;
                         Intent it = new Intent(v.getContext(), ResultActivity.class);
                         it.putExtra("time", time);
+                        it.putExtra("wrong", wrongCount);
                         startActivity(it);
                     }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "wrong number",Toast.LENGTH_LONG).show();
                     winSound.play(drillgear, 1, 1, 0, 0, (float) 1.2);
+                    wrongCount+=1;
                 }
             }
         });
@@ -206,12 +212,14 @@ public class GameActivity extends AppCompatActivity {
                         time = (afterTime - beforeTime)/1000;
                         Intent it = new Intent(v.getContext(), ResultActivity.class);
                         it.putExtra("time", time);
+                        it.putExtra("wrong", wrongCount);
                         startActivity(it);
                     }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "wrong number",Toast.LENGTH_LONG).show();
                     winSound.play(drillgear, 1, 1, 0, 0, (float) 1.2);
+                    wrongCount+=1;
                 }
             }
         });
@@ -228,12 +236,14 @@ public class GameActivity extends AppCompatActivity {
                         time = (afterTime - beforeTime)/1000;
                         Intent it = new Intent(v.getContext(), ResultActivity.class);
                         it.putExtra("time", time);
+                        it.putExtra("wrong", wrongCount);
                         startActivity(it);
                     }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "wrong number",Toast.LENGTH_LONG).show();
                     winSound.play(drillgear, 1, 1, 0, 0, (float) 1.2);
+                    wrongCount+=1;
                 }
             }
         });
@@ -250,12 +260,14 @@ public class GameActivity extends AppCompatActivity {
                         time = (afterTime - beforeTime)/1000;
                         Intent it = new Intent(v.getContext(), ResultActivity.class);
                         it.putExtra("time", time);
+                        it.putExtra("wrong", wrongCount);
                         startActivity(it);
                     }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "wrong number",Toast.LENGTH_LONG).show();
                     winSound.play(drillgear, 1, 1, 0, 0, (float) 1.2);
+                    wrongCount+=1;
                 }
             }
         });
@@ -272,12 +284,14 @@ public class GameActivity extends AppCompatActivity {
                         time = (afterTime - beforeTime)/1000;
                         Intent it = new Intent(v.getContext(), ResultActivity.class);
                         it.putExtra("time", time);
+                        it.putExtra("wrong", wrongCount);
                         startActivity(it);
                     }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "wrong number",Toast.LENGTH_LONG).show();
                     winSound.play(drillgear, 1, 1, 0, 0, (float) 1.2);
+                    wrongCount+=1;
                 }
             }
         });
@@ -294,12 +308,14 @@ public class GameActivity extends AppCompatActivity {
                         time = (afterTime - beforeTime)/1000;
                         Intent it = new Intent(v.getContext(), ResultActivity.class);
                         it.putExtra("time", time);
+                        it.putExtra("wrong", wrongCount);
                         startActivity(it);
                     }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "wrong number",Toast.LENGTH_LONG).show();
                     winSound.play(drillgear, 1, 1, 0, 0, (float) 1.2);
+                    wrongCount+=1;
                 }
             }
         });
@@ -316,12 +332,14 @@ public class GameActivity extends AppCompatActivity {
                         time = (afterTime - beforeTime)/1000;
                         Intent it = new Intent(v.getContext(), ResultActivity.class);
                         it.putExtra("time", time);
+                        it.putExtra("wrong", wrongCount);
                         startActivity(it);
                     }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "wrong number",Toast.LENGTH_LONG).show();
                     winSound.play(drillgear, 1, 1, 0, 0, (float) 1.2);
+                    wrongCount+=1;
                 }
             }
         });
@@ -338,12 +356,14 @@ public class GameActivity extends AppCompatActivity {
                         time = (afterTime - beforeTime)/1000;
                         Intent it = new Intent(v.getContext(), ResultActivity.class);
                         it.putExtra("time", time);
+                        it.putExtra("wrong", wrongCount);
                         startActivity(it);
                     }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "wrong number",Toast.LENGTH_LONG).show();
                     winSound.play(drillgear, 1, 1, 0, 0, (float) 1.2);
+                    wrongCount+=1;
                 }
             }
         });
@@ -360,12 +380,14 @@ public class GameActivity extends AppCompatActivity {
                         time = (afterTime - beforeTime)/1000;
                         Intent it = new Intent(v.getContext(), ResultActivity.class);
                         it.putExtra("time", time);
+                        it.putExtra("wrong", wrongCount);
                         startActivity(it);
                     }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "wrong number",Toast.LENGTH_LONG).show();
                     winSound.play(drillgear, 1, 1, 0, 0, (float) 1.2);
+                    wrongCount+=1;
                 }
             }
         });
@@ -382,12 +404,14 @@ public class GameActivity extends AppCompatActivity {
                         time = (afterTime - beforeTime)/1000;
                         Intent it = new Intent(v.getContext(), ResultActivity.class);
                         it.putExtra("time", time);
+                        it.putExtra("wrong", wrongCount);
                         startActivity(it);
                     }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "wrong number",Toast.LENGTH_LONG).show();
                     winSound.play(drillgear, 1, 1, 0, 0, (float) 1.2);
+                    wrongCount+=1;
                 }
             }
         });
@@ -404,12 +428,14 @@ public class GameActivity extends AppCompatActivity {
                         time = (afterTime - beforeTime)/1000;
                         Intent it = new Intent(v.getContext(), ResultActivity.class);
                         it.putExtra("time", time);
+                        it.putExtra("wrong", wrongCount);
                         startActivity(it);
                     }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "wrong number",Toast.LENGTH_LONG).show();
                     winSound.play(drillgear, 1, 1, 0, 0, (float) 1.2);
+                    wrongCount+=1;
                 }
             }
         });
@@ -426,12 +452,14 @@ public class GameActivity extends AppCompatActivity {
                         time = (afterTime - beforeTime)/1000;
                         Intent it = new Intent(v.getContext(), ResultActivity.class);
                         it.putExtra("time", time);
+                        it.putExtra("wrong", wrongCount);
                         startActivity(it);
                     }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "wrong number",Toast.LENGTH_LONG).show();
                     winSound.play(drillgear, 1, 1, 0, 0, (float) 1.2);
+                    wrongCount+=1;
                 }
             }
         });
@@ -448,12 +476,14 @@ public class GameActivity extends AppCompatActivity {
                         time = (afterTime - beforeTime)/1000;
                         Intent it = new Intent(v.getContext(), ResultActivity.class);
                         it.putExtra("time", time);
+                        it.putExtra("wrong", wrongCount);
                         startActivity(it);
                     }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "wrong number",Toast.LENGTH_LONG).show();
                     winSound.play(drillgear, 1, 1, 0, 0, (float) 1.2);
+                    wrongCount +=1;
                 }
             }
         });
@@ -470,12 +500,14 @@ public class GameActivity extends AppCompatActivity {
                         time = (afterTime - beforeTime)/1000;
                         Intent it = new Intent(v.getContext(), ResultActivity.class);
                         it.putExtra("time", time);
+                        it.putExtra("wrong", wrongCount);
                         startActivity(it);
                     }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "wrong number",Toast.LENGTH_LONG).show();
                     winSound.play(drillgear, 1, 1, 0, 0, (float) 1.2);
+                    wrongCount+=1;
                 }
             }
         });
@@ -492,12 +524,14 @@ public class GameActivity extends AppCompatActivity {
                         time = (afterTime - beforeTime)/1000;
                         Intent it = new Intent(v.getContext(), ResultActivity.class);
                         it.putExtra("time", time);
+                        it.putExtra("wrong", wrongCount);
                         startActivity(it);
                     }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "wrong number",Toast.LENGTH_LONG).show();
                     winSound.play(drillgear, 1, 1, 0, 0, (float) 1.2);
+                    wrongCount+=1;
                 }
             }
         });
@@ -514,12 +548,14 @@ public class GameActivity extends AppCompatActivity {
                         time = (afterTime - beforeTime)/1000;
                         Intent it = new Intent(v.getContext(), ResultActivity.class);
                         it.putExtra("time", time);
+                        it.putExtra("wrong", wrongCount);
                         startActivity(it);
                     }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "wrong number",Toast.LENGTH_LONG).show();
                     winSound.play(drillgear, 1, 1, 0, 0, (float) 1.2);
+                    wrongCount+=1;
                 }
             }
         });
@@ -536,12 +572,14 @@ public class GameActivity extends AppCompatActivity {
                         time = (afterTime - beforeTime)/1000;
                         Intent it = new Intent(v.getContext(), ResultActivity.class);
                         it.putExtra("time", time);
+                        it.putExtra("wrong", wrongCount);
                         startActivity(it);
                     }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "wrong number",Toast.LENGTH_LONG).show();
                     winSound.play(drillgear, 1, 1, 0, 0, (float) 1.2);
+                    wrongCount += 1;
                 }
             }
         });
@@ -558,12 +596,14 @@ public class GameActivity extends AppCompatActivity {
                         time = (afterTime - beforeTime)/1000;
                         Intent it = new Intent(v.getContext(), ResultActivity.class);
                         it.putExtra("time", time);
+                        it.putExtra("wrong", wrongCount);
                         startActivity(it);
                     }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "wrong number",Toast.LENGTH_LONG).show();
                     winSound.play(drillgear, 1, 1, 0, 0, (float) 1.2);
+                    wrongCount += 1;
                 }
             }
         });
@@ -580,12 +620,14 @@ public class GameActivity extends AppCompatActivity {
                         time = (afterTime - beforeTime)/1000;
                         Intent it = new Intent(v.getContext(), ResultActivity.class);
                         it.putExtra("time", time);
+                        it.putExtra("wrong", wrongCount);
                         startActivity(it);
                     }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "wrong number",Toast.LENGTH_LONG).show();
                     winSound.play(drillgear, 1, 1, 0, 0, (float) 1.2);
+                    wrongCount+=1;
                 }
             }
         });
@@ -602,12 +644,15 @@ public class GameActivity extends AppCompatActivity {
                         time = (afterTime - beforeTime)/1000;
                         Intent it = new Intent(v.getContext(), ResultActivity.class);
                         it.putExtra("time", time);
+                        it.putExtra("wrong", wrongCount);
                         startActivity(it);
+
                     }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "wrong number",Toast.LENGTH_LONG).show();
                     winSound.play(drillgear, 1, 1, 0, 0, (float) 1.2);
+                    wrongCount+=1;
                 }
             }
         });
@@ -624,12 +669,14 @@ public class GameActivity extends AppCompatActivity {
                         time = (afterTime - beforeTime)/1000;
                         Intent it = new Intent(v.getContext(), ResultActivity.class);
                         it.putExtra("time", time);
+                        it.putExtra("wrong", wrongCount);
                         startActivity(it);
                     }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "wrong number",Toast.LENGTH_LONG).show();
                     winSound.play(drillgear, 1, 1, 0, 0, (float) 1.2);
+                    wrongCount+=1;
                 }
             }
         });
@@ -646,12 +693,14 @@ public class GameActivity extends AppCompatActivity {
                         time = (afterTime - beforeTime)/1000;
                         Intent it = new Intent(v.getContext(), ResultActivity.class);
                         it.putExtra("time", time);
+                        it.putExtra("wrong", wrongCount);
                         startActivity(it);
                     }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "wrong number",Toast.LENGTH_LONG).show();
                     winSound.play(drillgear, 1, 1, 0, 0, (float) 1.2);
+                    wrongCount+=1;
                 }
             }
         });
@@ -668,12 +717,14 @@ public class GameActivity extends AppCompatActivity {
                         time = (afterTime - beforeTime)/1000;
                         Intent it = new Intent(v.getContext(), ResultActivity.class);
                         it.putExtra("time", time);
+                        it.putExtra("wrong", wrongCount);
                         startActivity(it);
                     }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "wrong number",Toast.LENGTH_LONG).show();
                     winSound.play(drillgear, 1, 1, 0, 0, (float) 1.2);
+                    wrongCount+=1;
                 }
             }
         });
@@ -690,12 +741,14 @@ public class GameActivity extends AppCompatActivity {
                         time = (afterTime - beforeTime)/1000;
                         Intent it = new Intent(v.getContext(), ResultActivity.class);
                         it.putExtra("time", time);
+                        it.putExtra("wrong", wrongCount);
                         startActivity(it);
                     }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "wrong number",Toast.LENGTH_LONG).show();
                     winSound.play(drillgear, 1, 1, 0, 0, (float) 1.2);
+                    wrongCount+=1;
                 }
             }
         });
